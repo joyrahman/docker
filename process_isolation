@@ -1,0 +1,26 @@
+Different Process Table view by cgroup isolation
+
+@Container 
+bash-4.1# ps -ef
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 Jul01 ?        00:00:00 /bin/bash /etc/bootstrap.sh -bash
+root        24     1  0 Jul01 ?        00:00:00 /usr/sbin/sshd
+root       126     1  1 Jul01 ?        01:46:10 /usr/java/default/bin/java -Dproc_namenode -Xmx1000m -Djava.net.preferIPv4
+root       218     1  1 Jul01 ?        01:57:38 /usr/java/default/bin/java -Dproc_datanode -Xmx1000m -Djava.net.preferIPv4
+root       400     1  0 Jul01 ?        01:04:59 /usr/java/default/bin/java -Dproc_secondarynamenode -Xmx1000m -Djava.net.p
+root       546     1  4 Jul01 ?        07:04:46 /usr/java/default/bin/java -Dproc_resourcemanager -Xmx1000m -Dhadoop.log.d
+root       639     1  1 Jul01 ?        03:06:03 /usr/java/default/bin/java -Dproc_nodemanager -Xmx1000m -Dhadoop.log.dir=/
+root       667     1  0 Jul01 ?        00:00:01 /bin/bash
+root     29619   667  1 13:58 ?        00:00:00 ps -ef
+
+
+
+@Host
+root      7745   892  0 Jul01 pts/1    00:00:00 /bin/bash /etc/bootstrap.sh -bash
+root      7805  7745  0 Jul01 ?        00:00:00 /usr/sbin/sshd
+root      7907  7745  1 Jul01 ?        01:46:11 /usr/java/default/bin/java -Dproc_namenode -Xmx1000m -Djava.net.preferI
+root      7999  7745  1 Jul01 ?        01:57:39 /usr/java/default/bin/java -Dproc_datanode -Xmx1000m -Djava.net.preferI
+root      8182  7745  0 Jul01 ?        01:05:00 /usr/java/default/bin/java -Dproc_secondarynamenode -Xmx1000m -Djava.ne
+root      8328  7745  4 Jul01 pts/1    07:04:50 /usr/java/default/bin/java -Dproc_resourcemanager -Xmx1000m -Dhadoop.lo
+root      8421  7745  1 Jul01 ?        03:06:05 /usr/java/default/bin/java -Dproc_nodemanager -Xmx1000m -Dhadoop.log.di
+root      8449  7745  0 Jul01 pts/1    00:00:01 /bin/bash
